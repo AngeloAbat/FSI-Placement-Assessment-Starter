@@ -1,27 +1,85 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
-// First, tell us your name
-let yourName = "Jane Doe" // HINT: Replace this with your own name!
+let yourName = ": Angelo Abat"
 
-// We'll use these variables to track the counts of each cookie type
 let gb = 0 // Gingerbread
 let cc = 0 // Chocolate Chip
 let sugar = 0 // Sugar Sprinkle
+let total = gb + cc + sugar
 
-// selecting the element with an id of credit
+let quantityGB = document.getElementById("qty-gb")
+let quantityCC = document.getElementById("qty-cc")
+let quantitySugar = document.getElementById("qty-sugar")
+let quantityTotal = document.getElementById("qty-total")
+
+
 const credit = document.querySelector('#credit')
-// selecting the element with an id of add-gb
-const gbPlusBtn = document.querySelector('#add-gb')
 
-// Code to update name display
-credit.textContent = `Created by ${yourName}`
 
-// Event listener for clicks on the "+" button for Gingerbread cookies
-gbPlusBtn.addEventListener('click', function() {
-// HINT: You can delete this console.log after you no longer need it!
-console.log('Gingerbread + button was clicked!')
+// GingerBread
+const gbPlus = document.querySelector('#add-gb')
+gbPlus.addEventListener("click", function(){
+    gb = gb + 1
+    total = gb + cc + sugar
+    console.log(gb)
 
-// TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
+    quantityGB.textContent = gb
+    quantityTotal.textContent = total
 })
 
-// TODO: Hook up event listeners for the rest of the buttons
+const gbMinus = document.querySelector("#minus-gb")
+gbMinus.addEventListener("click", function(){
+    gb = gb - 1
+    total = gb + cc + sugar
+
+    if (gb < 0){
+        gb = 0
+    }
+    quantityGB.textContent = gb
+    quantityTotal.textContent = total
+
+
+})
+
+// Chocolate Chip
+const ccPlus = document.querySelector("#add-cc")
+ccPlus.addEventListener("click", function(){
+    cc = cc + 1
+    total = gb + cc + sugar
+    quantityCC.textContent = cc
+    quantityTotal.textContent = total
+})
+const ccMinus = document.querySelector("#minus-cc")
+ccMinus.addEventListener("click", function(){
+    cc = cc - 1
+    total = gb + cc + sugar
+    if(cc < 0){
+       cc  = 0
+    }
+    quantityCC.textContent = cc
+    quantityTotal.textContent = total
+})
+
+// Sugar Sprinkle
+const sugarPlus = document.querySelector("#add-sugar")
+sugarPlus.addEventListener("click", function(){
+    sugar = sugar + 1
+    total = gb + cc + sugar
+    quantitySugar.textContent = sugar
+    quantityTotal.textContent = total
+})
+
+const sugarMinus = document.querySelector("#minus-sugar")
+sugarMinus.addEventListener("click", function(){
+    sugar = sugar - 1
+    total = gb + cc + sugar
+    if(sugar < 0){
+        sugar = 0
+    }
+    quantitySugar.textContent = sugar
+    quantityTotal.textContent = total
+})
+
+
+
+
+credit.textContent = `Created by ${yourName}`
+
