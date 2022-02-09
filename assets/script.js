@@ -29,7 +29,9 @@ const gbMinus = document.querySelector("#minus-gb")
 gbMinus.addEventListener("click", function(){
     gb = gb - 1
     total = gb + cc + sugar
-
+    if (total < 0){
+        total = 0
+    }
     if (gb < 0){
         gb = 0
     }
@@ -51,6 +53,9 @@ const ccMinus = document.querySelector("#minus-cc")
 ccMinus.addEventListener("click", function(){
     cc = cc - 1
     total = gb + cc + sugar
+    if (total < 0){
+        total = 0
+    }
     if(cc < 0){
        cc  = 0
     }
@@ -71,6 +76,9 @@ const sugarMinus = document.querySelector("#minus-sugar")
 sugarMinus.addEventListener("click", function(){
     sugar = sugar - 1
     total = gb + cc + sugar
+    if (total < 0){
+        total = 0
+    }
     if(sugar < 0){
         sugar = 0
     }
